@@ -1,0 +1,7 @@
+<h1>Food</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <h2>ingrdientss</h2>
+    {{ ingrdientss.as_p }}
+    <input type="submit" value="Save">
+</form>

@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/test.css' %}">
+	</head>
+	<body>
+		<div>
+            <h1><a href="/">Django CSS Testing</a></h1>
+        </div>
+        {% for f in foods%}
+        	<div>
+        		{{f.food_name}}
+        		<p>{{f.added_date}}</p>
+        		
+        	</div>
+        {% endfor %}
+	</body>
+</html>
+	

@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Foodapp</title>
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+    </head>
+
+    <body>
+        <label for="food_name"></label>
+        <input type="text" name="food_name" id="food_name">
+        <button id='btn_food_name'>GET MAGIC</button>
+        <div id="output"></div>
+       <!--  <hr> -->
+       <!--  <div>
+
+            <div id="food_name_val"></div>
+            <div id="dets"></div>
+        </div> -->
+    </body>
+
+    <body>
+        <main>
+            {% block content %}
+                <form method="GET">
+                	<select id="food-selected">
+                    	{% for food in food_list %}
+                       	 	<option value="{{ food.id }}">
+                        		{{ food.food_name }}
+                        	</option>
+                    	{% endfor %}
+                	</select>
+                	<input type="button" value="Update" id="selection-button" method="GET">
+            	</form>
+            {% endblock %}    
+        </main>       
+    </body>
+</html>

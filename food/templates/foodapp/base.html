@@ -1,0 +1,58 @@
+{% load staticfiles %}
+
+<html>
+  <head>
+    <title>Foodapp</title>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    
+
+  </head>
+
+  <body>
+    <label for="food_name"> Enter Food: 
+      <input type="text" name="food_name" id="food_name">
+    </label>
+    <button id='btn_food_name'>GET MAGIC</button>
+    <hr>
+    <div id="output"></div>
+    <hr>
+    <div id="food">
+      food : 
+    </div>
+     <!--  <hr> -->
+      <div>
+
+      <div id="food_name_val"></div>
+      <ul id="dets"></ul>
+      <table>
+        <thead>
+          <tr>
+            <th>col1</th>
+            
+
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $('document').ready(function() {
+      $('#btn_food_name').click(function() {
+        $.get('/food/ing/' + $('#food_name').val()).then(function(data){
+          $('#output').append(JSON.stringify(data));
+          $('#food').append(data.food_name);
+          for (i in data.ingredients){
+           $('tbody').append('<tr style="color:green;border:1px solid black"><td>'+JSON.stringify(data.ingredients[i])+'</td><tr>');
+          }
+      });
+     });
+      
+      
+      // $.ajax(url,method=get);
+      // $('#btn_food_name').hover(function(){console.log('dg=dkfhd')});
+    });
+  </script>
+</html>

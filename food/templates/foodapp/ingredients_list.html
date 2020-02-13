@@ -1,0 +1,21 @@
+{% extend "base.html" %}
+
+{% block content %}
+
+    <script type="text/javascript">
+        $.ajax({
+         url: "{% url 'food/ingredient_list' %}",
+         method: 'GET',
+         data : {
+                 filter_category: parseInt(foodSelected)
+         }
+         success: function(data){
+             console.log(data)
+         },
+         error: function(xhr, errmsg, err){
+             console.log("error")
+             console.log(error_data)
+         }
+        });
+    </script>
+{% endblock %}
